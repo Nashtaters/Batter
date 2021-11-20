@@ -82,6 +82,11 @@ namespace cse210_batter_csharp.Casting
         {
             return HashCode.Combine(_x, _y);
         }
+
+        public static implicit operator Point((int x, int y) v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

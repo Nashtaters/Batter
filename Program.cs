@@ -57,8 +57,17 @@ namespace cse210_batter_csharp
             script["input"] = new List<Action>();
             script["update"] = new List<Action>();
             
-            MoveActorsAction geoff = new MoveActorsAction();
-            script["update"].Add(geoff);
+            MoveActorsAction moveActors = new MoveActorsAction();
+            script["update"].Add(moveActors);
+
+            HandleOffScreenAction edges = new HandleOffScreenAction();
+            script["update"].Add(edges);
+
+            HandleCollisionsAction brickNoMore = new HandleCollisionsAction();
+            script["update"].Add(brickNoMore);
+
+            ControlActorsAction movePaddle = new ControlActorsAction();
+            script["input"].Add(movePaddle);
 
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);
