@@ -72,8 +72,6 @@ namespace cse210_batter_csharp
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);
 
-            // TODO: Add additional actions here to handle the input, move the actors, handle collisions, etc.
-
             // Start up the game
             outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Batter", Constants.FRAME_RATE);
             audioService.StartAudio();

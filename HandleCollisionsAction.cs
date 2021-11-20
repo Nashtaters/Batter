@@ -27,18 +27,28 @@ namespace cse210_batter_csharp
                 ball.SetVelocity(newVelocity);
             }
             
+            Actor brickToRemove = null;
             foreach(Actor brick in bricks)
             {
                 bool collision = _physics.IsCollision(ball, brick);
                 if (collision)
                 {
                     _audio.PlaySound(Constants.SOUND_BOUNCE);
+
                     brick.SetImage("./Assets/brick-4.png");
+
+                    brickToRemove = brick;
+
                     Point reverseVelocity = ball.GetVelocity().Reverse();
                     Point newVelocity = new Point(reverseVelocity.GetX()*-1, reverseVelocity.GetY());
                     ball.SetVelocity(newVelocity);
                 }
             }
+            if (brickToRemove != null)
+            {
+                cast["bricks"].Remove(brickToRemove);
+            }
+            
         }
     }
 }
